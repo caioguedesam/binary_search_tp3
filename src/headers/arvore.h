@@ -1,22 +1,26 @@
 #ifndef ARVORE_TP3
 #define ARVORE_TP3
 #include <string>
+#include <iostream>
 
 class Node
 {
 private:
-	std::string _digit;
+	std::string _morse;
+	char _digit;
 	Node *_left, *_right;
 public:
 	Node();	
-	Node(const std::string &digit);
+	Node(const char &digit, const std::string &morse);
 	~Node();
 	
-	void SetChar(const std::string &digit);
+	void SetMorse(const std::string &morse);
+	void SetDigit(const char &digit);
 	void SetLeft(Node *left);
 	void SetRight(Node *right);
 
-	std::string GetDigit();
+	std::string GetMorse();
+	char GetDigit();
 	Node *GetLeft();
 	Node *GetRight();
 	
@@ -31,6 +35,12 @@ public:
 	~Tree();
 
 	Node *GetHead();
+
+	void EmptyTree(Node *aux, const int &level);
+	void EmptyTree();
+	void InsertNode(const char &digit, const std::string &morse);
+	void PrintPreOrder(Node *aux);
+	void PrintPreOrder();
 };
 
 #endif

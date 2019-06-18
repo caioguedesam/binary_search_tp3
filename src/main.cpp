@@ -42,7 +42,8 @@ int main(int argc, char *argv[]) {
 		std::cout << line_message << std::endl;
 	}
 
-	if(argv[1] == "-a")
+	if(std::string(argv[1]) == "-a") {
 		t.PrintPreOrder();
+	}
 	return 0;
 }

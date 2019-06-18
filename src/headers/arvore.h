@@ -39,6 +39,7 @@ public:
 	void EmptyTree(Node *aux, const int &level);
 	void EmptyTree();
 	void InsertNode(const char &digit, const std::string &morse);
+	char SearchFor(const std::string &morse);
 	void PrintPreOrder(Node *aux);
 	void PrintPreOrder();
 };

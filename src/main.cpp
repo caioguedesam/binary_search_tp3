@@ -1,7 +1,7 @@
 #include "headers/arvore.h"
 #include <fstream>
 
-int main() {
+int main(int argc, char *argv[]) {
 
 	std::ifstream input;
 	input.open("morse.txt", std::fstream::in);
@@ -17,6 +17,32 @@ int main() {
 
 	input.close();
 
-	t.PrintPreOrder();
+	while(std::getline(std::cin, line)) {
+		int index;
+		std::string line_message = "";
+		std::string current_morse = "";
+		for(index = 0; index < line.size(); index++) {
+			if(line[index] == '.' || line[index] == '-') {
+				current_morse += line[index];
+				if(line[index+1] == *line.end())
+					line_message += t.SearchFor(current_morse);
+			}
+			else if(line[index] == '/') 
+				line_message += ' ';
+			else if(line[index] == ' ' && current_morse != "") {
+				line_message += t.SearchFor(current_morse);	
+				current_morse = "";
+			}
+			else {
+				line_message += t.SearchFor(current_morse);
+				current_morse = "";
+			}
+		}
+
+		std::cout << line_message << std::endl;
+	}
+
+	if(argv[1] == "-a")
+		t.PrintPreOrder();
 	return 0;
 }

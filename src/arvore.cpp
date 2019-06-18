@@ -73,6 +73,19 @@ void Tree::InsertNode(const char &digit, const std::string &morse) {
 	aux->SetDigit(digit);
 }
 
+char Tree::SearchFor(const std::string &morse) {
+	Node *aux = this->GetHead();
+	int i;
+	for(i = 0; i < morse.size(); i++) {
+		if(morse[i] == '.')
+			aux = aux->GetLeft();
+		else if(morse[i] == '-')
+			aux = aux->GetRight();
+	}
+
+	return aux->GetDigit();
+}
+
 void Tree::PrintPreOrder(Node *aux) {
 	if(aux != this->GetHead() && aux->GetMorse() != "")
 		std::cout << aux->GetDigit() << " " << aux->GetMorse() << std::endl;

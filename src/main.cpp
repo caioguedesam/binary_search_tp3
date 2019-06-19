@@ -33,16 +33,13 @@ int main(int argc, char *argv[]) {
 				line_message += t.SearchFor(current_morse);	
 				current_morse = "";
 			}
-			else {
-				line_message += t.SearchFor(current_morse);
-				current_morse = "";
-			}
+			
 		}
 
 		std::cout << line_message << std::endl;
 	}
 
-	if(std::string(argv[1]) == "-a") {
+	if(argc == 2 && std::string(argv[1]) == "-a") {
 		t.PrintPreOrder();
 	}
 	return 0;

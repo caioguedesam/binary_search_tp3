@@ -6,7 +6,10 @@ The goal is to develop a program that can decode a message written in morse code
 The program was mainly written in C++, without using the STL as part of the assignment.
 
 ### Usage
-TODO
+To compile, using the provided Makefile:
+`make`
+To run the program, use the command:
+`./tp3 [-a]`
 
 ---
 # Busca Binária: Analisador de Código Morse
